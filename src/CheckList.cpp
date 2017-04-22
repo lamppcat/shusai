@@ -24,3 +24,16 @@ void CheckList::add(const CheckListTypes::IDType id, const CheckListTypes::strin
     const CheckListTask another(caption, checked);
     this->add(id, another);
 }
+
+void CheckList::add(const CheckListTypes::IDType id, const CheckListTask& task) {
+    bool created = false;
+    try {
+        this->m_data.at(id);
+    } catch (std::out_of_range&) {
+        this->m_data[id] = task;
+        created = true;
+    }
+    if (!created) {
+        throw std::logic_error("Element with such ID already exists");
+    }
+}

@@ -37,6 +37,10 @@ public:
         return (this->caption() == rhs.caption() && this->checked() == rhs.checked());
     }
 
+    inline bool operator!=(const CheckListTask& rhs) const {
+        return !(*this == rhs);
+    }
+
 private:
     bool m_checked;
     CheckListTypes::string m_caption;
@@ -56,8 +60,10 @@ public:
     CheckListTask& at(CheckListTypes::IDType idx) { return this->m_data.at(idx); }
     const CheckListTask& at(CheckListTypes::IDType idx) const { return this->m_data.at(idx); }
 
-    void add(const CheckListTypes::IDType id, const CheckListTask& task) { this->m_data[id] = task; }
+    void add(const CheckListTypes::IDType id, const CheckListTask& task);
     void add(const CheckListTypes::IDType id, const CheckListTypes::string& caption, const bool checked = false);
+
+    // TODO: addReplace(IDType, CheckListTask)
 
     CheckListTypes::dataType& data() { return this->m_data; }
     const CheckListTypes::dataType& data() const { return this->m_data; }
