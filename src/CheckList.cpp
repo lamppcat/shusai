@@ -1,3 +1,7 @@
+// Copyright (c) 2017 Evgeniy Filimonov (evgfilim1@yandex.ru)
+// Licensed under the GPLv3 license as published by Free Software Foundation.
+// https://www.gnu.org/licenses/gpl-3.0-standalone.html
+
 #include "../include/CheckList.h"
 
 CheckListTypes::IDType CheckList::index(const CheckListTypes::string caption, const bool checked) const {
