@@ -1,4 +1,4 @@
-// Copyright (c) 2017 Evgeniy Filimonov (evgfilim1@yandex.ru)
+// Copyright (c) 2017 Evgeniy Filimonov (evgfilim1@yandex.ru), Ivan Pakhomov (ipmezza@gmail.com)
 // Licensed under the GPLv3 license as published by Free Software Foundation.
 // https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
