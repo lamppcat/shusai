@@ -13,14 +13,18 @@ class CheckListTask;
 namespace CheckListTypes {
 
 using IDType = int;
-using dataType = std::QMap<IDType, CheckListTask>;
+using dataType = QMap<IDType, CheckListTask>;
 using string = QString;
 
 } // namespace CheckListTypes
 
-class CheckListTask {
+class CheckListTask : public QObject {
+    Q_OBJECT
 public:
-    // Using `std::string` below by copy constructor is for accepting both variables and string literals
+    Q_PROPERTY(QString name READ getName WRITE setName MEMBER name SCRIPTABLE true STORED true USER true FINAL)
+    Q_PROPERTY(bool checked READ isChecked WRITE setChecked MEMBER checked SCRIPTABLE true STORED true USER true FINAL)
+
+    // Using `QString` below by copy constructor is for accepting both variables and string literals
     CheckListTask(const CheckListTypes::string caption = "", const bool checked = false) :
         m_checked(checked), m_caption(caption) {}
     ~CheckListTask() = default;
@@ -51,7 +55,7 @@ private:
     // TODO: due date
 };
 
-class CheckList {
+class CheckList : public QObject {
 public:
     CheckList() = default;
     ~CheckList() = default;
@@ -82,5 +86,10 @@ public:
     // TODO: range-based `for`
 
 private:
+    Q_PROPERTY(QString name READ getName WRITE setName MEMBER name SCRIPTABLE true STORED true USER true FINAL)
+    Q_PROPERTY(QString description READ getDescription WRITE setDescription MEMBER description SCRIPTABLE true STORED true USER true FINAL)
+    Q_PROPERTY(QVector< entries READ getEntires WRITE setEntries MEMBER entries SCRIPTABLE true STORED true USER true FINAL)
+
+
     CheckListTypes::dataType m_data;
 };
