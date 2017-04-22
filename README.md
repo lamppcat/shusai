@@ -1,2 +1,2 @@
 ### Shusai
-Work in progres. Stay tuned.
+Work in progress. Stay tuned.
