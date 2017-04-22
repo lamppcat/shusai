@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <string>
-#include <map>
+#include <QString>
+#include <QMap>
 #include <stdexcept>
 
 class CheckListTask;
@@ -13,8 +13,8 @@ class CheckListTask;
 namespace CheckListTypes {
 
 using IDType = int;
-using dataType = std::map<IDType, CheckListTask>;
-using string = std::string;
+using dataType = std::QMap<IDType, CheckListTask>;
+using string = QString;
 
 } // namespace CheckListTypes
 
